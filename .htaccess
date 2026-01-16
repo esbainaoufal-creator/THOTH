@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /lms/
+
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]
