@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../models/Student.php';
 class StudentController
 {
     public function login()
@@ -41,7 +41,24 @@ class StudentController
         $_SESSION['student_id'] = $student['id'];
         $_SESSION['student_name'] = $student['name'];
 
-        header("Location: /lms/student/dashboard");
+        header("Location: /lms/dashboard");
+        exit;
+    }
+    public function registration()
+    {
+        require '../app/views/student/register.php';
+    }
+
+    public function registrationPost()
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        $studentModel = new Student();
+        $studentModel->create($name, $email, $password);
+
+        header("Location: /lms/login");
         exit;
     }
     

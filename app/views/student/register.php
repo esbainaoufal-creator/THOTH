@@ -7,14 +7,12 @@
 </head>
 <body>
     <form method="POST" action="/lms/register">
-        <label>name</label>
-    <input type="text" name="name">
-    <label>email</label>
-    <input type="email" name="email">
-    <label>password</label>
-    <input type="password" name="password">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Register</button>
 </form>
+
 
 </body>
 </html>
